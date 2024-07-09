@@ -55,6 +55,10 @@ class BusinessCard:
     def contact(self):
         print(f"Kontaktuję się z {self.name} {self.surname}, {self.position} pod adresem {self.email}")
 
+    @property
+    def full_name_length(self):
+        return len(self.name + self.surname) + 1
+
 
 if __name__ == "__main__":
     """
@@ -90,3 +94,6 @@ if __name__ == "__main__":
     # ćwiczenie 4: dodaj do klasy metodę contact(), która wyświetli
     # “Kontaktuję się z …”, a na końcu wyświetli imię, nazwisko, stanowisko i adres e-mail osoby, z którą chcemy się skontaktować.
     # card_list[3].contact()
+
+    # ćwiczenie 5: zdefiniuj dynamiczny atrybut (używając @property), który będzie zwracał sumę długości imienia i nazwiska oddzielonych spacją
+    #print(card_list[2].full_name_length)
