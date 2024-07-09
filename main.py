@@ -7,6 +7,11 @@ class BusinessCard:
     Klasa przechowująca dane z wizytówek
     Argumenty:
     imię, nazwisko, nazwa firmy, stanowisko, adres e-mail
+
+    __init__ konstruktor klasy, jakie zmienne przyjmuje, co z nimi robi
+    __str__ jak klasa zachowuje się po dodaniu do fcji print()
+    __repr__ co zostanie wyświetlone po wywołaniu samego obiektu tej klasy
+            jeśli __str__ nie zostało zdefiniowane, to jest dziedziczone z __repr__
     """
     def __init__(self, full_name, business, position, email):
        self.name = full_name.split(" ")[0]
