@@ -22,6 +22,35 @@ class BusinessCard:
 
     def __str__(self):
         return f"{self.name} {self.surname} {self.email}"
+    
+    def __gt__(self,other):
+        return self.surname > other.surname
+    
+    def __lt__(self,other):
+        return self.surname < other.surname
+    
+    def __eq__(self, other):
+        return (
+        self.name == other.name and
+        self.surname == other.surname and
+        self.business == other.business and
+        self.position == other.position and
+        self.email == other.email
+        )
+
+    """
+    # funkcjonalnie to samo co powyżej
+    def __eq__(self, other):
+    return all(
+        (
+            self.name == other.name,
+            self.surname == other.surname,
+            self.business == other.business,
+            self.position == other.position,
+            self.email == other.email
+        )
+    )
+    """
 
 if __name__ == "__main__":
     """
@@ -43,3 +72,6 @@ if __name__ == "__main__":
     for i in range (0,len(data)):
         card_list.append(BusinessCard(full_name = data[i][0], business = data[i][1], position = data[i][2], email = data[i][3]))
         print(card_list[i])
+
+    by_name = sorted(card_list, key=lambda card_list: card_list.name)
+    print(by_name)
