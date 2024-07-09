@@ -9,7 +9,7 @@ class BusinessCard:
     imię, nazwisko, nazwa firmy, stanowisko, adres e-mail
 
     __init__ konstruktor klasy, jakie zmienne przyjmuje, co z nimi robi
-    __str__ jak klasa zachowuje się po dodaniu do fcji print()
+    __str__ definiuje jak klasa zachowuje się po dodaniu do fcji print()
     __repr__ co zostanie wyświetlone po wywołaniu samego obiektu tej klasy
             jeśli __str__ nie zostało zdefiniowane, to jest dziedziczone z __repr__
     """
@@ -19,6 +19,9 @@ class BusinessCard:
        self.business = business
        self.position = position
        self.email = email
+
+    def __str__(self):
+        return f"{self.name} {self.surname} {self.email}"
 
 if __name__ == "__main__":
     """
@@ -39,4 +42,4 @@ if __name__ == "__main__":
     card_list = []
     for i in range (0,len(data)):
         card_list.append(BusinessCard(full_name = data[i][0], business = data[i][1], position = data[i][2], email = data[i][3]))
-        print(card_list[i].name, card_list[i].surname, card_list[i].email)
+        print(card_list[i])
