@@ -71,7 +71,12 @@ if __name__ == "__main__":
     card_list = []
     for i in range (0,len(data)):
         card_list.append(BusinessCard(full_name = data[i][0], business = data[i][1], position = data[i][2], email = data[i][3]))
-        print(card_list[i])
+        #print(card_list[i])
 
-    by_name = sorted(card_list, key=lambda card_list: card_list.name)
-    print(by_name)
+    by_name = sorted(card_list, key=lambda card: card.name)
+    by_surname = sorted(card_list, key=lambda card: card.surname)
+    by_mail = sorted(card_list, key=lambda card: card.email)
+    sorted_cards = {"Po imieniu" : by_name, "Po nazwisku" : by_surname, "Po adresie" : by_mail}
+
+    for key,value in sorted_cards.items():
+        print(f"{key}: {value[0]}, {value[1]}, {value[2]}")
